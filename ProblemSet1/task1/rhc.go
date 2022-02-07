@@ -70,22 +70,29 @@ func main() {
 	z := []float64{3.0, 0.5}
 
 	var num_runs int
-	for _, v := range sp {
-		x, y := v[0], v[1]
+	for seedi := 0; seedi < 2; seedi++ {
+		randseed := rand.Int63()
+		fmt.Printf("\nRun %d with random seed %d\n\n", seedi+1, randseed)
 
-		for _, neighbor_count := range p {
-			for _, size := range z {
+		for _, v := range sp {
+			x, y := v[0], v[1]
 
-				for i := 0; i < 2; i++ {
-					randseed := rand.Int63()
+			for _, neighbor_count := range p {
+				for _, size := range z {
 
-					fmt.Printf("Run %d for parameters sp: %v, p: %d, z: %v, on seed %d\n", num_runs, v, neighbor_count, size, randseed)
+					fmt.Printf("Run %d for parameters sp: %v, p: %d, z: %v\n", num_runs+1, v, neighbor_count, size)
 
 					count, vector, solution := evaluate_rhc(x, y, neighbor_count, size, randseed, 0)
 					num_runs += 1
-					fmt.Println("\t", count, vector, solution)
+
+					fmt.Printf("\tCount: %d, Sol: %v, f(sol): %v\n", count, vector, solution)
 				}
 			}
 		}
 	}
+
+	fmt.Printf("\n33rd run with parameters: \n\tsp: {135.0, 256.0}\n\tp: 50\n\tz: 10.0")
+	hcount, hvector, hsolution := evaluate_rhc(135.0, 256.0, 50, 10.0, rand.Int63(), 0)
+
+	fmt.Println("\nResults: ", hcount, hvector, hsolution)
 }
