@@ -66,6 +66,10 @@ func main() {
 		{412.0, -99.9},
 	}
 
+	for _, i := range sp {
+		fmt.Printf("f(%v, %v): %v\n", i[0], i[1], function(i[0], i[1]))
+	}
+
 	p := []int{30, 250}
 	z := []float64{3.0, 0.5}
 
@@ -91,8 +95,8 @@ func main() {
 		}
 	}
 
-	fmt.Printf("\n33rd run with parameters: \n\tsp: {135.0, 256.0}\n\tp: 50\n\tz: 10.0")
-	hcount, hvector, hsolution := evaluate_rhc(135.0, 256.0, 50, 10.0, rand.Int63(), 0)
+	fmt.Printf("\n33rd run with parameters: \n\tsp: {267.15, 510.125}\n\tp: 45\n\tz: 0.3")
+	hcount, hvector, hsolution := evaluate_rhc(267.15, 510.125, 45, 0.3, rand.Int63(), 0)
 
-	fmt.Println("\nResults: ", hcount, hvector, hsolution)
+	fmt.Printf("\nResults: \n\tCount: %d\n\tSol: %v\n\tf(sol): %v\n", hcount, hvector, hsolution)
 }
