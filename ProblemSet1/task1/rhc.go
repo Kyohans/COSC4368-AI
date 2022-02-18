@@ -95,8 +95,8 @@ func main() {
 		}
 	}
 
-	fmt.Printf("\n33rd run with parameters: \n\tsp: {267.15, 510.125}\n\tp: 45\n\tz: 0.3")
-	hcount, hvector, hsolution := evaluate_rhc(267.15, 510.125, 45, 0.3, rand.Int63(), 0)
+	fmt.Printf("\n33rd run with parameters: \n\tsp: {267.15, 510.125}\n\tp: 5\n\tz: 40")
+	hcount, hvector, hsolution := evaluate_rhc(267.15, 510.125, 5, 40, rand.Int63(), 0)
 
-	fmt.Printf("\nResults: \n\tCount: %d\n\tSol: %v\n\tf(sol): %v\n", hcount, hvector, hsolution)
+	fmt.Printf("\nResults: \n\tf(267.15, 510.125): %v\n\tCount: %d\n\tSol: %v\n\tf(sol): %v\n", function(267.15, 510.125), hcount, hvector, hsolution)
 }
